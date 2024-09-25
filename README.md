@@ -60,7 +60,7 @@ Before you begin, ensure you have the following installed on your local machine:
 
 1.  **Clone the Repository:**
 
-	### `git clone https://github.com/yourusername/daily-art-explorer.git`
+	### `git clone https://github.com/ozgenur00/daily-art-explorer-main.git`
 	### `cd daily-art-explorer`
  
 **Backend Setup:**
