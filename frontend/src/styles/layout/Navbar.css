@@ -1,0 +1,133 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #cddcdf;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2f4858;
+    text-decoration: none;
+    margin-right: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.navbar-link {
+    color: #2f4858;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-link:hover {
+    color: #126782;
+}
+
+.navbar-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-user {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #126782;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    min-width: 150px;
+    position: relative; 
+}
+
+
+.navbar-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 6px 6px;
+    width: 100%; 
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.navbar-user:hover .navbar-dropdown,
+.navbar-right:hover .navbar-dropdown {
+    display: flex; 
+}
+
+.navbar-dropdown-item {
+    display: block;
+    color: #0e5268;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 12px 24px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-dropdown-item:hover {
+    background-color: #0e5268;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-user {
+        width: auto;
+        padding: 10px 20px;
+    }
+
+    .navbar-dropdown {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 22px; 
+    }
+
+    .navbar-user {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .navbar-dropdown-item {
+        font-size: 0.9rem;
+    }
+}

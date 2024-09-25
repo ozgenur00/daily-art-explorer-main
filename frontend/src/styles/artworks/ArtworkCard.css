@@ -1,0 +1,40 @@
+.artwork-card {
+    background-color: rgba(255, 255, 255, 0.508);;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .artwork-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .artwork-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .artwork-card p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .artwork-card button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #126782;
+    color: white;
+    font-size: 16px;
+    margin: 5px;
+  }
+  
+  .artwork-card button:hover {
+    background-color: #2f4858;
+  }

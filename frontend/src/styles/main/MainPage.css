@@ -1,0 +1,56 @@
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('/src/styles/mainpageimg.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #1d3b4d;
+  background-color: rgba(255, 255, 255, 0.633);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 80%;  
+  max-width: 800px; 
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.styled-button {
+  padding: 0.5rem 1.5rem;  
+  background-color: #126782;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;  
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #2f4858;
+}
