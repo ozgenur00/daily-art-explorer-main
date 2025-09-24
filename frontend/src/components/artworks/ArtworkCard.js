@@ -38,15 +38,16 @@ const ArtworkCard = ({ artwork }) => {
 
     return (
         <div className="artwork-card">
-            {!imageError && artwork.image_url ? (
-                <img 
-                    src={artwork.image_url} 
-                    alt={artwork.title} 
-                    onError={() => setImageError(true)} 
-                />
-            ) : (
-                <Placeholder />
-            )}
+            {!imageError && artwork.imageUrl ? (
+  <img 
+    src={artwork.imageUrl}
+    alt={artwork.title}
+    onError={() => setImageError(true)}
+  />
+) : (
+  <Placeholder />
+)}
+
             <h3>{artwork.title}</h3>
             <p>Artist: {artwork.artist}</p>
             <p>Period: {artwork.period}</p>

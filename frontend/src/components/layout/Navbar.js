@@ -50,6 +50,8 @@ function Navbar() {
                         <Link to="/artworks" className="navbar-link">Browse Artworks</Link>
                         <Link to="/liked-artworks" className="navbar-link">Liked Artworks</Link>
                         <Link to="/saved-artworks" className="navbar-link">Saved Artworks</Link>
+                        <Link to="/add-artwork" className="navbar-link">Add Artwork</Link>
+
                     </div>
                 )}
             </div>

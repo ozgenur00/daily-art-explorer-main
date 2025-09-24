@@ -95,13 +95,6 @@ class ArtworkService {
     const artworks = await Artwork.findPaginated(pageSize, offset); // Fetch artworks from the database
     const total = await Artwork.countAll(); // Get total artwork count from the database
 
-    // If fewer artworks than requested are found, fetch more from the external API
-    if (artworks.length < pageSize) {
-      const missingArtworks = pageSize - artworks.length;
-      const fetchBatchSize = 100; // Fetch more than needed to reduce API calls
-      await this.fetchAndSaveArtworks(Math.max(missingArtworks, fetchBatchSize));
-    }
-
     const totalPages = Math.ceil(total / pageSize);
     return {
       artworks,

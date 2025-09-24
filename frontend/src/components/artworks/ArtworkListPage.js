@@ -18,6 +18,11 @@ const ArtworkListPage = () => {
     const [filteredArtworks, setFilteredArtworks] = useState([]);
 
     useEffect(() => {
+        console.log("Artworks from backend:", artworks);
+      }, [artworks]);
+      
+
+    useEffect(() => {
         dispatch(fetchAllArtworks({ page: currentPage, pageSize }));
     }, [dispatch, currentPage, pageSize]);
 

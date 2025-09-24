@@ -2,7 +2,8 @@ const express = require('express');
 const ArtworkService = require('../services/artworkService');
 const { authenticateToken } = require('../middleware/authMiddleware');
 const Artwork = require('../models/artworkModel');
-
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
 
@@ -69,10 +70,6 @@ router.get('/', authenticateToken, async (req, res) => {
 });
 
 
-
-
-
-
 // GET artwork by ID
 router.get('/:id', authenticateToken, async (req, res) => {
   const { id } = req.params;
@@ -90,5 +87,41 @@ router.get('/:id', authenticateToken, async (req, res) => {
   }
 });
 
+//folder for uploaded documents
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
+
+router.post('/', authenticateToken, upload.single('image'), async (req, res) => {
+  const { title, artist, period, medium, location, metUrl } = req.body;
+
+  try {
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const imageUrl = req.file ? `${baseUrl}/uploads/${req.file.filename}` : null;
+
+    const newArtwork = await Artwork.create({
+      title,
+      artist,
+      period,
+      medium,
+      location,
+      imageUrl,
+      metUrl
+    });
+
+    res.status(201).json(newArtwork);
+  } catch (err) {
+    console.error('Error adding artwork:', err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;

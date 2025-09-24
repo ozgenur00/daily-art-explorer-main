@@ -17,6 +17,7 @@ import FlashMessage from './components/layout/FlashMessage';
 import NotFound from './components/common/NotFound';
 import ArtworkDetails from './components/artworks/ArtworkDetails';
 import AccountSettings from './components/main/AccountSettings';
+import AddArtworkPage from './components/artworks/AddArtworkPage';
 
 function AppContent() {
   const location = useLocation();
@@ -59,6 +60,7 @@ function AppContent() {
         <Route path="*" element={<NotFound />} />
         <Route path="/artwork/:id" element={<ArtworkDetails />} />
         <Route path="/account-settings" element={<AccountSettings />} />
+        <Route path='/add-artwork' element={<AddArtworkPage />} />
       </Routes>
     </div>
   );

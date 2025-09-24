@@ -8,11 +8,12 @@ const authRoutes = require('./routes/authRoutes');
 const likeRoutes = require('./routes/likeRoutes');
 const savedArtworkRoutes = require('./routes/savedArtworkRoutes');
 const ArtworkService = require('./services/artworkService');
+const path = require('path');
 
 const app = express();
 
 // Define PORT from environment variable or default to 5000
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 /**
  * Middleware setup for enabling Cross-Origin Resource Sharing (CORS).
@@ -43,6 +44,8 @@ app.get('/', (req, res) => {
 });
 
 // Use API Routes
+app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
+
 app.use('/api/artworks', artworkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
@@ -55,7 +58,7 @@ app.use('/api/saved_artworks', savedArtworkRoutes);
 const prefetchArtworks = async () => {
   try {
     const existingArtworksCount = await ArtworkService.getAllArtworksCount();
-    const artworksToFetch = 1000;
+    const artworksToFetch = 5;
     if (existingArtworksCount < artworksToFetch) {
       console.log(`Pre-fetching ${artworksToFetch - existingArtworksCount} artworks...`);
       await ArtworkService.fetchAndSaveArtworks(artworksToFetch - existingArtworksCount);
@@ -77,5 +80,6 @@ if (process.env.NODE_ENV !== 'test') {
     await prefetchArtworks();
   });
 }
+
 
 module.exports = app;
